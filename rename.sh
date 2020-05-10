@@ -23,6 +23,7 @@ Options:
 -p, --package-name [PACKAGE_NAME]  new package name (i.e. com.example.package)
 -t, --title [TITLE]                new app title (i.e. MyApp)
 -o, --old-package-name [OLD_PACKAGE]     old package  name to be changed (i.e. com.app.fitness)
+-ot, --oldtitle [OLD_TITLE]                old app title (i.e. MyApp)
 EOF
 
     exit 1
@@ -31,6 +32,7 @@ EOF
 packagename=""
 title=""
 oldpackage=""
+oldtitle=""
 while [ $# -gt 0 ] ; do
     case "$1" in
     -h|--help)
@@ -46,6 +48,10 @@ while [ $# -gt 0 ] ; do
         ;;
     -o|--old-package-name)
         oldpackage="$2"
+        shift
+        ;;
+    -ot|--old-title)
+        oldtitle="$2"
         shift
         ;;
     -*)
@@ -67,6 +73,10 @@ if [ -z "$title" ] ; then
 fi
 
 if [ -z "$oldpackage" ] ; then
+    usage "Not enough arguments"
+fi
+
+if [ -z "$oldtitle" ] ; then
     usage "Not enough arguments"
 fi
 
@@ -107,5 +117,6 @@ PACKAGE_DIR=$( renamefolderstructure $PACKAGE_DIR )
 # search and replace in files
 PACKAGE_NAME_ESCAPED="${packagename//./\.}"
 OLD_PACKAGE_NAME_ESCAPED="${oldpackage//./\.}"
+OLD_TITLE="${oldtitle//./\.}"
 LC_ALL=C find $WORKING_DIR -type f -exec sed -i "" "s/$OLD_PACKAGE_NAME_ESCAPED/$PACKAGE_NAME_ESCAPED/g" {} +
 LC_ALL=C find $WORKING_DIR -type f -exec sed -i "" "s/$OLD_TITLE/$TITLE_NO_SPACES/g" {} +
