@@ -58,7 +58,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     yield LoginState.submitting();
 
     try {
-      // await authService.signInWithFacebook();
+      await authService.signInWithFacebook();
       yield LoginState.success();
     } on PlatformException catch (e) {
       yield LoginState.failed(e.message);
