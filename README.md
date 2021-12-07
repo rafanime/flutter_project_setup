@@ -1,16 +1,11 @@
-# projectname
-
-A new Flutter project.
-
-## Getting Started
+# Rafanime project setup
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+It holds initial routes and session and cubit logic to handle logins for firebase. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This will require a new firebase app to be created and the proper googleservices file to be placed in both iOS and android sections.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run this command to change this standard project into whatever name you wish
+
+<code>./rename.sh --package-name NEW_PACKAGE_NAME -t NEW_APP_NAME -o OLD_PACKAGE_NAME -ot OLD_PACKAGE</cide>
