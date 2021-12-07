@@ -8,4 +8,4 @@ This will require a new firebase app to be created and the proper googleservices
 
 Run this command to change this standard project into whatever name you wish
 
-<code>./rename.sh --package-name NEW_PACKAGE_NAME -t NEW_APP_NAME -o OLD_PACKAGE_NAME -ot OLD_PACKAGE</cide>
+<code>./rename.sh --package-name NEW_PACKAGE_NAME -t NEW_APP_NAME -o OLD_PACKAGE_NAME -ot OLD_PACKAGE</code>
